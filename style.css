@@ -1,0 +1,202 @@
+:root {
+    --navy: #0d1d33; /* Azul do seu cartão */
+    --gold: #c5a059; /* Dourado do seu cartão */
+    --white: #ffffff;
+    --bg-gray: #e8e8e8; /* Fundo cinza para destacar os blocos */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-gray);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    content: 100%;
+}
+
+.site-container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo Base dos Blocos */
+.block {
+    background-color: var(--navy);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.gold-text { 
+    color: var(--gold); 
+    margin-bottom: 15px; 
+    text-transform: uppercase; }
+
+/* Header Block */
+.header-block { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    height: 15%;
+}
+.logo-area { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    width: 50%;}
+.logo-icon { 
+    width: 20%;
+    object-fit: contain;
+    display: block;
+}
+.logo-text h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    letter-spacing: 2px; 
+}
+.logo-text p { 
+    font-size: 0.9rem; 
+    color: var(--gold); 
+    margin-top: 5px; 
+}
+.menu-area { 
+    width: 50%; 
+    display: flex; 
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-menu a { 
+    color: var(--navy); 
+    text-decoration: none; 
+    margin-left: 20px; 
+    font-weight: bold;
+}
+.nav-menu a:hover { 
+    color: var(--bg-gray);
+    transition: color 0.3s;
+}
+.btn-whatsapp {
+    background: var(--gold); 
+    color: var(--navy);
+    padding: 10px 10px;
+    border-radius: 20px; 
+    text-decoration: none; font-weight: bold;
+}
+
+/* Middle Content Layout */
+.middle-content { 
+    display: grid; 
+    grid-template-columns: 350px 1fr; 
+    gap: 15px; 
+    height: 70%;
+}
+
+.profile-block { 
+    background-color: var(--white); 
+    color: var(--navy); 
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+.profile-photo {
+  width: 100%;
+  background: #ddd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 5%;
+}
+
+.profile-photo .profile-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.oab { color: var(--gold); font-weight: bold; margin-bottom: 15px; }
+.contact-info p { font-size: 0.9rem; margin-bottom: 8px; }
+
+.about-block { 
+    background-color: var(--white); 
+    color: var(--navy);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+/* Carrossel */
+.carousel-container { display: flex; align-items: center; gap: 20px; }
+.carousel-window { flex: 1; text-align: center; height: 120px; display: flex; align-items: center; justify-content: center; }
+.service-card { display: none; }
+.service-card.active { display: block; animation: fadeIn 0.5s; }
+.arrow { 
+    background: var(--gold); border: none; width: 40px; height: 40px; 
+    border-radius: 50%; cursor: pointer; font-size: 1.2rem; 
+}
+
+/* Alinha a seção de serviços à coluna direita dentro de .middle-content */
+.services-block { 
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin-top: 10px;
+}
+
+/* Footer */
+.footer-block { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 0.85rem;
+    height: 15%;
+}
+.footer-logo{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-center{
+    width: 60%;
+    text-align: center;
+}
+.footer-right{
+    width: 20%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-icon-small {
+    width: 50%;
+    padding: 5px; 
+    color: var(--gold); 
+    font-weight: bold;
+    margin-bottom: 5px; 
+    display: inline-block;}
+.qr-image {
+  width: 65px;
+  margin-top: 5px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px; /* opcional */
+  display: block;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-block { flex-direction: column; text-align: center; gap: 20px; }
+    .middle-content { grid-template-columns: 1fr; }
+    .profile-block { grid-column: 1 / -1; grid-row: auto; }
+    .about-block  { grid-column: 1 / -1; }
+    .services-block{ grid-column: 1 / -1; }
+}
